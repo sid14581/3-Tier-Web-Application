@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: mongo-deploy
   namespace: three-tier
-  tier: db 
+  labels:
+    tier: db
 spec:
   replicas: 1
   selector:
@@ -12,10 +13,12 @@ spec:
   template:
     metadata:
       namespace: three-tier
-      tier: db 
+      name: mongo-pod
+      labels:
+        tier: db
     spec:
       containers:
-        - name: mongo-pod
+        - name: mongo-container
           image: mongo:4.4.6
           command:
             - "numactl"
@@ -29,7 +32,7 @@ spec:
             requests:
               memory: "512Mi"
               cpu: "250m"
-            limit:
+            limits:
               memory: "1Gi"
               cpu: "500m"
           env: 
@@ -47,9 +50,9 @@ spec:
             - containerPort: 27017
           
           
-          volumeMount:
+          volumeMounts:
             - name: mongo-vol
-              mountpath: /data/mongodb
+              mountPath: /data/mongodb
       volumes:         
         - name: mongo-vol
           persistentVolumeClaim:

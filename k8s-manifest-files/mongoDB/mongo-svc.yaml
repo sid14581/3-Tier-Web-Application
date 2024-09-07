@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: mongo-svc
   namespace: three-tier
-  tier: db
 spec:
   selector:
     tier: db
