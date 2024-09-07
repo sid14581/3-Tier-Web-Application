@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io.v1
+kind: storageClass
+metadata:
+  name: efs-sc
+provisioner: efs.csi.aws.com
+parameters:
+  fileSystemId: fs-004721af3e6e3165e
+  directoryPerms: "700"
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
