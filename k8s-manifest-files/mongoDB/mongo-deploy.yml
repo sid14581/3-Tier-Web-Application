@@ -50,6 +50,7 @@ spec:
           volumeMount:
             - name: mongo-vol
               mountpath: /data/mongodb
-      persistentVolumeClaim:
+      volumes:         
         - name: mongo-vol
-          claimName: mongo-pvc
+          persistentVolumeClaim:
+            claimName: mongo-pvc
