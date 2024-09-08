@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  namespace: three-tier
+  labels:
+    tier: frontend
+spec: 
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  selector:
+    matchLabels: 
+        tier: frontend
+  template:
+    metadata:
+      name: frontend-pod
+      namespace: three-tier
+      labels:
+        tier: frontend
+    spec: 
+      containers:
+      - name: frontend-container
+        image: 992382401555.dkr.ecr.us-east-1.amazonaws.com/frontend-app-repo:latest
+        imagePullPolicy: Always
+        env:
+          - name: REACT_APP_BACKEND_URL
+            value: "http://backend.sid.reddy/api/tasks"
+        ports:
+        - containerPort: 3000
