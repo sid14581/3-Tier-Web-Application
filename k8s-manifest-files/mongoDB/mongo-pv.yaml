@@ -5,11 +5,11 @@ metadata:
   namespace: three-tier
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   volumeMode: Filesystem
   capacity:
     storage: 10Gi
-  storageClassName: efs-sc
+  storageClassName: mongo-sc
   mountOptions:
     - tls 
   csi:

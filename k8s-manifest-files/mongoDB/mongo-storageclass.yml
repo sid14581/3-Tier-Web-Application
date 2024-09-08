@@ -1,12 +1,9 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: efs-sc
+  name: mongo-sc
   namespace: three-tier
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"  
 provisioner: efs.csi.aws.com
-parameters:
-  fileSystemId: fs-0a14425b88f5d6bd1 
 reclaimPolicy: Delete
-volumeBindingMode: Immediate

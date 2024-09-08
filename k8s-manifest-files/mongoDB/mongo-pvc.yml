@@ -5,9 +5,9 @@ metadata:
   namespace: three-tier
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   #storageClassName: ""
-  storageClassName: efs-sc
+  storageClassName: mongo-sc
   resources:
     requests:
       storage: 5Gi
