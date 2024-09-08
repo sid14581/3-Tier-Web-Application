@@ -6,4 +6,7 @@ metadata:
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"  
 provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-0fca4442da91173c3::fsap-02ab867780ac51861
 reclaimPolicy: Delete

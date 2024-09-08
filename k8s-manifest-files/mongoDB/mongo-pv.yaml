@@ -6,6 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
   volumeMode: Filesystem
   capacity:
     storage: 10Gi
@@ -14,4 +15,4 @@ spec:
     - tls 
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-0a14425b88f5d6bd1
+    volumeHandle: fs-0fca4442da91173c3::fsap-02ab867780ac51861
