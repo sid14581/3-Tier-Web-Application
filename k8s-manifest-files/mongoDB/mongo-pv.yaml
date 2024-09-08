@@ -9,5 +9,9 @@ spec:
   volumeMode: Filesystem
   capacity:
     storage: 10Gi
-  hostPath:
-    path: /data/mongodb
+  storageClassName: efs-sc
+  mountOptions:
+    - tls 
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0a14425b88f5d6bd1

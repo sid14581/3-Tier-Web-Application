@@ -1,10 +1,20 @@
-apiVersion: storage.k8s.io.v1
-kind: storageClass
+apiVersion: storage.k8s.io/v1
+kind: CSIDriver
+metadata:
+  name: efs.csi.aws.com
+  namespace: three-tier
+spec:
+  attachRequired: false
+
+---
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
   name: efs-sc
+  namespace: three-tier
 provisioner: efs.csi.aws.com
 parameters:
-  fileSystemId: fs-004721af3e6e3165e
-  directoryPerms: "700"
+  fileSystemId: fs-0a14425b88f5d6bd1 
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
