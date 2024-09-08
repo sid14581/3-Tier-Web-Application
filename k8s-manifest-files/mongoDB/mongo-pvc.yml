@@ -6,7 +6,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  #storageClassName: ""
   storageClassName: mongo-sc
   resources:
     requests:
