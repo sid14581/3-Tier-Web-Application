@@ -17,6 +17,18 @@ spec:
       labels:
         tier: db
     spec:
+      initContainers:
+        - name: init-efs-mount
+          image: amazonlinux
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "mkdir -p /mnt/efs && mount -t nfs4 -o nfsvers=4.1 fs-0d2d9f07d86662213.efs.<region>.amazonaws.com:/ /mnt/efs && mkdir -p /mnt/efs/mongo && chmod 777 /mnt/efs/mongo",
+            ]
+          volumeMounts:
+            - name: efs-volume
+              mountPath: /mnt/efs    
       containers:
         - name: mongo-container
           image: mongo:4.4.6
