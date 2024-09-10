@@ -31,3 +31,10 @@ spec:
             value: "http://backend-svc:3500/api/tasks"
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            memory: "4Gi"  
+            cpu: "2000m"      
+          limits:
+            memory: "4Gi"
+            cpu: "3000m"      

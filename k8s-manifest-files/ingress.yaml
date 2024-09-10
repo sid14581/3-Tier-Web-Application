@@ -10,8 +10,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: backend-svc.three-tier.svc.cluster.local:3500
-      http:
+    - http:
         paths:
           - path: /api
             pathType: Prefix
