@@ -8,5 +8,5 @@ metadata:
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSystemId: fs-010e7c80b5606e6c7
+  fileSystemId: fs-07abfaeb219e12826
 reclaimPolicy: Delete
